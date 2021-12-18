@@ -15,7 +15,7 @@ let keyP = [] //keyPads
 let livesLeft = []; //lives left in game
 let randomNotesX = [33, 113, 193,485,565,645]
 let song = [30]
-let twinkleStar = 'AABBCCDDE'
+let twinkleStar = 'AABBCCD'
 
 let keypadKeys = [65, 83, 68, 74, 74, 76]
 //AUDIOS
@@ -120,6 +120,8 @@ livesLeft.push(
 )
 
 //FUNCTIONS & stuff
+
+let count = 0
 function draw(){
     frames++
     //draw the keyPad
@@ -131,14 +133,13 @@ function draw(){
         if (songNote === 30){
         if (frames % songNote === 0) { 
             fallNotes.push(new Notes(shuffleNote(randomNotesX), 0, 25, 25, "orange")) 
-            
         }
         } else if (songNote === 120){
             if (frames % songNote === 0) { 
                 fallNotes.push(new Notes(shuffleNote(randomNotesX), 0, 25, 25, "white")) 
-                console.log(songNote)
             } 
         }
+        
     })
    
     fallNotes.forEach(n => {
@@ -153,21 +154,23 @@ function draw(){
     fallNotes.forEach(noteScore => {
         if(noteScore.notePos() === 330) {
             playSong()
-            
+            console.log(noteScore)
             //clearInterval(myInterval)
         }
     })
 }
 
-let z = 0;
+let z = -1;
 
 function playSong(){
     z++
-    console.log(twinkleStar.charAt(z))
+    let keyNote = twinkleStar.charAt(z)
     twinkle.play()
-    if (z > 7) {
-        twinkle.pause()
+    if (keyNote === "D") {
+        //twinkle.pause()
         clearInterval(myInterval)
+    } if (z > 9){
+        
     }
 }
 
