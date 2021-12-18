@@ -1,0 +1,17 @@
+div {
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameCanvas {
+    background-color: lightgrey;
+    background-image:url(../images/pianoHero.jpeg);
+    background-repeat:no-repeat;
+    background-size: 700px 400px;
+
+}
